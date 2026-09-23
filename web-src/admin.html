@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — My Store</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <header class="admin-header">
+    <h1>Admin Panel</h1>
+    <div class="header-right">
+      <span id="user-name"></span>
+      <a href="plp.html" class="btn btn-secondary">Store</a>
+      <button class="btn btn-danger" id="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <div class="admin-wrap">
+
+    <!-- ─── Action Runner Card ─────────────────────────── -->
+    <div class="runner-card">
+      <h2> Action Runner</h2>
+      <p class="sub-text">
+        Select an action, choose the HTTP method, fill in the payload
+        as JSON key-value pairs, and fire it.
+      </p>
+
+      <!-- Step 1 — Pick Action -->
+      <div class="form-row">
+        <label>1. Select Action</label>
+        <div class="action-select-row">
+          <select id="action-select">
+            <option value="">-- choose an action --</option>
+          </select>
+          <span class="action-url-preview" id="action-url-preview">
+            URL will appear here
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 2 — HTTP Method -->
+      <div class="form-row">
+        <label>2. HTTP Method</label>
+        <div class="method-group" id="method-group">
+          <button class="method-btn active" data-method="POST">POST</button>
+          <button class="method-btn" data-method="GET">GET</button>
+          <button class="method-btn" data-method="PUT">PUT</button>
+          <button class="method-btn" data-method="DELETE">DELETE</button>
+        </div>
+      </div>
+
+      <!-- Step 3 — Payload -->
+      <div class="form-row" id="payload-section">
+        <label>3. Payload <span class="label-hint">(JSON key-value pairs)</span></label>
+
+        <div class="kv-list" id="kv-list">
+          <!-- rows injected here -->
+        </div>
+
+        <div class="kv-actions">
+          <button class="btn btn-ghost" id="btn-add-row">Add Field</button>
+          <button class="btn btn-ghost" id="btn-clear-rows">Clear All</button>
+          <button class="btn btn-ghost" id="btn-paste-json">Paste JSON</button>
+        </div>
+
+        <!-- Raw JSON toggle -->
+        <div class="raw-toggle">
+          <label class="toggle-label">
+            <input type="checkbox" id="raw-mode-toggle">
+            Edit as raw JSON
+          </label>
+        </div>
+
+        <!-- Raw JSON textarea (hidden by default) -->
+        <textarea
+          id="raw-json"
+          class="raw-json"
+          placeholder='{"key": "value"}'
+          style="display:none;"
+          rows="8"
+        ></textarea>
+
+      </div>
+
+      <!-- Step 4 — Fire -->
+      <div class="form-row">
+        <label>4. Send Request</label>
+        <div class="fire-row">
+          <button class="btn btn-primary btn-fire" id="btn-fire">
+            Run Action
+          </button>
+          <button class="btn btn-ghost" id="btn-reset">Reset</button>
+          <span class="fire-status" id="fire-status"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Response Card ──────────────────────────────── -->
+    <div class="response-card" id="response-card" style="display:none;">
+      <div class="response-header">
+        <h3>Response</h3>
+        <div class="response-meta">
+          <span class="badge" id="res-status-badge"></span>
+          <span class="res-time" id="res-time"></span>
+          <button class="btn btn-ghost btn-sm" id="btn-copy-response">
+            Copy
+          </button>
+        </div>
+      </div>
+      <pre class="response-body" id="response-body"></pre>
+    </div>
+
+    <!-- ─── Quick Presets ──────────────────────────────── -->
+    <div class="presets-card">
+      <h3>Quick Presets</h3>
+      <p class="sub-text">Click a preset to auto-fill the form.</p>
+      <div class="presets-grid" id="presets-grid">
+        <!-- injected from JS -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ─── Paste JSON Modal ───────────────────────────────── -->
+  <div class="modal-overlay" id="paste-modal" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Paste JSON</h3>
+        <button class="modal-close" id="modal-close">✕</button>
+      </div>
+      <textarea
+        id="paste-area"
+        rows="10"
+        placeholder='Paste your JSON object here e.g. {"name":"John","email":"john@test.com"}'
+      ></textarea>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btn-parse-json">Import</button>
+        <button class="btn btn-ghost" id="btn-cancel-paste">Cancel</button>
+        <span class="parse-error" id="parse-error"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

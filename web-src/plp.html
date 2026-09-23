@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — My Store</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/plp.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <template id="tmpl-not-logged-in">
+    <div class="not-logged-in">
+      <h2>Access Denied</h2>
+      <p>You must be logged in to view products.</p>
+      <a href="index.html">Go to Login</a>
+    </div>
+  </template>
+
+  <template id="tmpl-header">
+    <header>
+      <h1 id="logo">My Store</h1>
+      <div class="user-info">
+        <span>Hello, <strong id="user-name">User</strong></span>
+        <button class="logout-btn" id="logout-btn">Logout</button>
+      </div>
+    </header>
+  </template>
+
+  <template id="tmpl-controls">
+    <div class="controls">
+      <input
+        type="text"
+        class="search-input"
+        id="search"
+        placeholder="Search products...">
+      <select id="category">
+        <option value="">All Categories</option>
+      </select>
+      <select id="sort">
+        <option value="title-asc">Name A–Z</option>
+        <option value="title-desc">Name Z–A</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating-desc">Top Rated</option>
+      </select>
+      <select id="limit">
+        <option value="10">10 per page</option>
+        <option value="20">20 per page</option>
+        <option value="30">30 per page</option>
+      </select>
+      <span class="results-count" id="results-count"></span>
+    </div>
+    <div class="products-grid" id="products-grid">
+      <div class="loading">Loading products...</div>
+    </div>
+    <div class="pagination" id="pagination"></div>
+  </template>
+
+  <script src="js/utils.js"></script>
+  <script src="js/plp.js"></script>
+</body>
+</html>

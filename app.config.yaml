@@ -1,0 +1,98 @@
+application:
+  actions: actions
+  web: web-src
+  runtimeManifest:
+    packages:
+      inf68327:
+        license: Apache-2.0
+        actions:
+          generic:
+            function: actions/generic/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+            annotations:
+              require-adobe-auth: true
+              final: true
+          events:
+            function: actions/events/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              apiKey: $SERVICE_API_KEY
+            annotations:
+              require-adobe-auth: true
+              final: true
+          signup:
+            function: actions/auth/signup/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              DB_REGION: apac
+            annotations:
+              require-adobe-auth: false
+              final: true
+              include-ims-credentials: true
+          login:
+            function: actions/auth/login/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              JWT_SECRET: $JWT_SECRET
+              DB_REGION: apac
+            annotations:
+              require-adobe-auth: false
+              final: true
+              include-ims-credentials: true
+          validate-token:
+            function: actions/auth/validate-token/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              JWT_SECRET: $JWT_SECRET
+              DB_REGION: apac
+            annotations:
+              require-adobe-auth: false
+              final: true
+              include-ims-credentials: true
+          ingest-products:
+            function: actions/products/ingest/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              DB_REGION: apac
+            annotations:
+              require-adobe-auth: false
+              final: true
+              include-ims-credentials: true
+          list-products:
+            function: actions/products/list/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              DB_REGION: apac
+            annotations:
+              require-adobe-auth: false
+              final: true
+              include-ims-credentials: true
+          product-details:
+            function: actions/products/details/index.js
+            web: 'yes'
+            runtime: nodejs:22
+            inputs:
+              LOG_LEVEL: debug
+              DB_REGION: apac
+            annotations:
+              require-adobe-auth: false
+              final: true
+              include-ims-credentials: true
+    database:
+      auto-provision: true
+      region: apac

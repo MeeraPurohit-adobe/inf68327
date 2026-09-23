@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details — My Store</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/pdp.css">
+</head>
+<body>
+  <div id="app"></div>
+
+  <template id="tmpl-not-logged-in">
+    <div class="not-logged-in">
+      <h2>Access Denied</h2>
+      <p>You must be logged in to view product details.</p>
+      <a href="index.html">Go to Login</a>
+    </div>
+  </template>
+
+  <template id="tmpl-header">
+    <header>
+      <h1 id="logo">My Store</h1>
+      <div class="user-info">
+        <span>Hello, <strong id="user-name">User</strong></span>
+        <button class="logout-btn" id="logout-btn">Logout</button>
+      </div>
+    </header>
+  </template>
+
+  <template id="tmpl-pdp-shell">
+    <span class="back-link" id="back-link">← Back to Products</span>
+    <div id="content">
+      <div class="loading">Loading product...</div>
+    </div>
+  </template>
+
+  <template id="tmpl-product-detail">
+    <div class="product-container">
+      <div class="product-gallery">
+        <img
+          id="main-image"
+          class="main-image"
+          src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+          alt="">
+        <div class="thumbnails" id="thumbnails"></div>
+      </div>
+      <div class="product-details">
+        <span class="product-category" id="detail-category"></span>
+        <h1 class="product-title" id="detail-title"></h1>
+        <div class="product-rating" id="detail-rating"></div>
+        <div class="product-price" id="detail-price"></div>
+        <div class="product-discount" id="detail-discount"></div>
+        <p class="product-description" id="detail-description"></p>
+        <div class="product-meta" id="detail-meta"></div>
+        <button class="add-to-cart" id="add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </template>
+
+  <script src="js/utils.js"></script>
+  <script src="js/pdp.js"></script>
+</body>
+</html>
