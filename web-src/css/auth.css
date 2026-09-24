@@ -130,3 +130,109 @@ button[type="submit"]:disabled {
 .hint strong {
   color: #ff6b00;
 }
+
+/* ─── Input states ───────────────────────────────────────── */
+.input-error {
+  border-color: #ef4444 !important;
+  background: #fff5f5 !important;
+}
+
+.input-success {
+  border-color: #22c55e !important;
+  background: #f0fdf4 !important;
+}
+
+/* ─── Field error text ───────────────────────────────────── */
+.field-error {
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  color: #dc2626;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.rule-fail {
+  display: block;
+  color: #dc2626;
+  font-size: 0.78rem;
+}
+
+/* ─── Strength bar ───────────────────────────────────────── */
+.strength-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.strength-track {
+  flex: 1;
+  height: 5px;
+  background: #e5e7eb;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.strength-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 99px;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.strength-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  min-width: 72px;
+  text-align: right;
+}
+
+/* ─── Rules checklist ────────────────────────────────────── */
+.password-rules {
+  margin-top: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rule-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  transition: color 0.2s;
+}
+
+.rule-icon {
+  font-size: 0.75rem;
+  width: 14px;
+  text-align: center;
+  transition: color 0.2s;
+}
+
+.rule-pass {
+  color: #16a34a;
+}
+
+.rule-pass .rule-icon {
+  color: #16a34a;
+  font-weight: 700;
+}
+
+.rule-fail-item {
+  color: #dc2626;
+}
+
+.rule-fail-item .rule-icon {
+  color: #dc2626;
+}
+
+/* ─── Error list inside message box ─────────────────────── */
+.error-list {
+  margin: 0.4rem 0 0 1rem;
+  padding: 0;
+  font-size: 0.8rem;
+  line-height: 1.8;
+}

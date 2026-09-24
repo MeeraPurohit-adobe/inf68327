@@ -1,7 +1,10 @@
-# ─── Environment & Secrets ───────────────────────────────────────────────────
+# ─── Adobe Credentials & Config ──────────────────────────────────────────────
 .env
 .env.local
 .env.*.local
+.aio
+.credentials.json
+266146-642RoseKiwi-Stage.json
 
 # ─── Adobe App Builder / AIO ─────────────────────────────────────────────────
 .aio

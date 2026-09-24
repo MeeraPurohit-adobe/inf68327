@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/auth.css">
 </head>
+
 <body class="auth-page">
   <div class="auth-container">
     <h1>My Store</h1>
@@ -26,6 +28,7 @@
         <div class="form-group">
           <label>Password</label>
           <input type="password" id="login-password" placeholder="Enter password" required>
+          <div class="field-error" id="login-password-error" style="display:none;"></div>
         </div>
         <button type="submit" id="login-btn">Login</button>
         <div class="message" id="login-message"></div>
@@ -45,7 +48,25 @@
         </div>
         <div class="form-group">
           <label>Password</label>
-          <input type="password" id="signup-password" placeholder="Min 6 characters" required>
+          <input type="password" id="signup-password" placeholder="Min 8 characters" required>
+
+          <!-- Strength bar -->
+          <div class="strength-wrap">
+            <div class="strength-track">
+              <div class="strength-fill" id="password-strength-bar"></div>
+            </div>
+            <span class="strength-label" id="password-strength-text"></span>
+          </div>
+
+          <!-- Live rules checklist -->
+          <div class="password-rules" id="password-rules"></div>
+        </div>
+
+        <!-- Confirm Password field -->
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" id="signup-confirm-password" placeholder="Re-enter password" required>
+          <div class="field-error" id="confirm-password-error" style="display:none;"></div>
         </div>
         <button type="submit" id="signup-btn">Create Account</button>
         <div class="message" id="signup-message"></div>
@@ -55,4 +76,5 @@
 
   <script src="js/auth.js"></script>
 </body>
+
 </html>
